@@ -1,8 +1,3 @@
-// =============================================
-// Create new Button objects for any interaction
-// you want to add to your pet.
-// =============================================
-
 class Button {
 
   private String label;
