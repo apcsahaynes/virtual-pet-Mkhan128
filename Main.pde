@@ -2,6 +2,7 @@ VirtualPet myPet;
 
 Button feedButton;
 Button playButton;
+Button cleanButton;
 
 // How many milliseconds between each status update
 // (increase to slow down, decrease to speed up)
@@ -16,13 +17,16 @@ final int MESSAGE_DURATION = 2000; // milliseconds to show the message
 void setup() {
   size(600, 500);
   textFont(createFont("Arial", 16, true));
+  img = loadImage("Background.jpg");
+  img.resize(300,0);
 
-  myPet = new VirtualPet4("Coco");
+  myPet = new VirtualPet("Coco");
 
   // Buttons sit along the bottom of the screen
   // Button(label, x, y, width, height)
-  feedButton = new Button("Feed", 150, 430, 120, 45);
-  playButton = new Button("Play", 330, 430, 120, 45);
+  feedButton = new Button("Feed", 90, 430, 120, 45);
+  playButton = new Button("Play", 240, 430, 120, 45);
+  cleanButton = new Button("Bathe", 390, 430, 120, 45);
 }
 
 void draw() {
@@ -39,6 +43,7 @@ void draw() {
   drawStats(myPet);
   feedButton.display();
   playButton.display();
+  cleanButton.display();
   drawMessage();
 }
 
@@ -53,6 +58,11 @@ void mousePressed() {
     Game g = new Game("Coin Toss", 2, 1);
     myPet.play(g);
     showMessage(g.getName() + " played!");
+  }
+  
+  if(cleanButton.isClicked(mouseX, mouseY)){
+    Cleans c = new Cleans(2);
+    myPet.clean(c);
   }
 }
 
