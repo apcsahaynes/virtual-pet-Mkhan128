@@ -1,5 +1,3 @@
-
-// ---- Layout constants ----
 final int STATS_X      = 420;   // left edge of stats panel
 final int STATS_Y      = 20;    // top edge of stats panel
 final int STATS_W      = 160;   // panel width
@@ -25,8 +23,9 @@ void drawStats(VirtualPet pet) {
   int row = 0;
   statRow("Energy",    pet.getEnergyLevel(),    row++);
   statRow("Happiness", pet.getHappinessLevel(), row++);
-  // statRow("Weight",    pet.getWeight(),         row++);  // uncomment when getter added
-  // statRow("Age",       pet.getAgeYears(),        row++);  // uncomment when getter added
+  statRow("Weight",    pet.getWeight(),         row++);
+  statRow("Age",       pet.getAgeYears(),        row++);  
+  statRow("Cleanliness", pet.getClean(), row++);
 }
 
 // Draws one label + value row inside the stats panel
